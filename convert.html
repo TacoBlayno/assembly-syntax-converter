@@ -30,11 +30,14 @@
       const textEl = document.querySelector("ttextarea");
       const attSyntax = {
         label: /[a-zA-Z0-9_][a-zA-Z0-9_.]*:/,
-        instruction: /[(mov)(push)][bwlq]/
+        instruction: /[(mov)(push)(sub)(add)][bwlq]/,
+        operands: /([(%[(eax)(edx)(ebx)(ecx)(edi)(esi)(ebp)(esp)(ax)(dx)(bx)(cx)(ah)(dh)(bh)(ch)(al)(dl)(bl)(cl)])([a-zA-Z0-9_][a-zA-Z0-9_.]*)($[([0-9]*)(".*")])][(%[(eax)(edx)(ebx)(ecx)(edi)(esi)(ebp)(esp)(ax)(dx)(bx)(cx)(ah)(dh)(bh)(ch)(al)(dl)(bl)(cl)])([a-zA-Z0-9_][a-zA-Z0-9_.]*)]*)/,
+        comment: /\/\/.*/
       }
       intelSyntax = {
-        label: /([a-zA-Z_][a-zA-Z0-9_]*){1, 246}:*/,
-        instuction: /[(mov)(push)]/
+        label: /([a-zA-Z_][a-zA-Z0-9_]*){1, 246}:/,
+        instuction: /[(mov)(push)(sub)(add)]/,
+        operands: /([(%[(eax)(edx)(ebx)(ecx)(edi)(esi)(ebp)(esp)(ax)(dx)(bx)(cx)(ah)(dh)(bh)(ch)(al)(dl)(bl)(cl)])([a-zA-Z_][a-zA-Z0-9_]*){1, 246}][(%[(eax)(edx)(ebx)(ecx)(edi)(esi)(ebp)(esp)(ax)(dx)(bx)(cx)(ah)(dh)(bh)(ch)(al)(dl)(bl)(cl)])([a-zA-Z_][a-zA-Z0-9_]*){1, 246}($[([0-9]*)(".*")])]*)/,
       }
 
       function attToIntel(text) {}
