@@ -28,14 +28,16 @@
       };
       const outputEl = document.querySelector("output");
       const textEl = document.querySelector("ttextarea");
-
-      function attToIntel(text) {
-        
+      const attSyntax = {
+        label: /[a-zA-Z0-9_][a-zA-Z0-9_.]*:/,
+      }
+      intelSyntax = {
+        label: /([a-zA-Z_][a-zA-Z0-9_]*){1, 246}:*/,
       }
 
-      function intelToAtt(text) {
-        
-      }
+      function attToIntel(text) {}
+
+      function intelToAtt(text) {}
       
       function initiate() {
         switch (syntaxEls.fromEl.value.lower() + ":" + syntaxEls.toEl.value.lower()) {
