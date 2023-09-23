@@ -30,9 +30,11 @@
       const textEl = document.querySelector("ttextarea");
       const attSyntax = {
         label: /[a-zA-Z0-9_][a-zA-Z0-9_.]*:/,
+        instruction: /[(mov)(push)][bwlq]/
       }
       intelSyntax = {
         label: /([a-zA-Z_][a-zA-Z0-9_]*){1, 246}:*/,
+        instuction: /[(mov)(push)]/
       }
 
       function attToIntel(text) {}
@@ -40,13 +42,31 @@
       function intelToAtt(text) {}
       
       function initiate() {
-        switch (syntaxEls.fromEl.value.lower() + ":" + syntaxEls.toEl.value.lower()) {
-          case "at&t:intel":
+        switch (syntaxEls.fromEl.value.lower()) {
+          case "at&t":
+            switch (syntaxEls.toEl.value.lower()) {
+              case "":
+                // validate instead of convert
+                break;
+              case "intel":
+                break;
+              default:
+                outputEl.textContent = "Error: invalid syntax. Cannot convert " + syntaxEls.fromEl.value.lower() + " to " + syntaxEls.toEl.value.lower() + "!";
+            }
             break;
-          case "intel:at&t":
+          case "intel":
+            switch (syntaxEls.toEl.value.lower()) {
+              case "":
+                // validate instead of convert
+                break;
+              case "at&t":
+                break;
+              default:
+                outputEl.textContent = "Error: invalid syntax. Cannot convert " + syntaxEls.fromEl.value.lower() + " to " + syntaxEls.toEl.value.lower() + "!";
+            }
             break;
           default:
-            outputEl.textContent = "Error: syntax type is invalid, or not provided!\n\tIn case you forgot, valid syntax types are \"AT&T\" and \"Intel\"";
+            outputEl.textContent = "Error: cannot convert " + syntaxEls.fromEl.value.lower() + "!";
         }
       }
     </script>
