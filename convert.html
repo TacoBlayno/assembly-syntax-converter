@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html" charste="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AT&T Assembly to Intel Assembly</title>
+  </head>
+  <style>
+    @media (prefers-color-scheme: dark {
+      body {
+        color: #fff;
+        background: #000;
+      }
+    }
+  </style>
+  <body>
+    <h1>AT&T Assembly to Intel Assembly</h1>
+    <!--<input type="file">-->
+    <textarea></textarea>
+    <label for="#from-syntax">From: </label><input id="from-syntax" type="text" placeholder="E.g. AT&amp;T" />
+    <label for="#to-syntax">To: </label><input id="to-syntax" type="text" placeholder="E.g. Intel" />
+    <button onclick="initiate();">Convert</button>
+    <output style="display: block; white-space: pre-wrap;"></output>
+    <script>
+      const syntaxEls = {
+        fromEl: document.querySelector("#from-syntax"),
+        toEl: document.querySelector("#to-syntax")
+      };
+      const outputEl = document.querySelector("output");
+      const textEl = document.querySelector("ttextarea");
+
+      function attToIntel(text) {
+        
+      }
+
+      function intelToAtt(text) {
+        
+      }
+      
+      function initiate() {
+        switch (syntaxEls.fromEl.value.lower() + ":" + syntaxEls.toEl.value.lower()) {
+          case "at&t:intel":
+            break;
+          case "intel:at&t":
+            break;
+          default:
+            outputEl.textContent = "Error: syntax type is invalid, or not provided!\n\tIn case you forgot, valid syntax types are \"AT&T\" and \"Intel\"";
+        }
+      }
+    </script>
+  </body>
+</html>
