@@ -20,16 +20,29 @@ int main(char *args, int argc) {
 				rcx++;
 				switch (*(args+rcx)) {
 					case 'f':
+						rcx++;
+						if (*(args+rcx) == ' ') rcx++;
+						switch (*(args+rcx)) {
+							case 'a':
+								break;
+							case 'i':
+								break;
+						}
 						break;
 					case 'c':
+						rcx++;
 						break;
 					case 't':
+						rcx++;
 						break;
 					case 'o':
+						rcx++;
 						break;
 					case '?':
+						rcx++;
 						break;
 					case 'h':
+						rcx++;
 						break;
 					case '-':
 						break;
