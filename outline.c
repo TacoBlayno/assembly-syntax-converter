@@ -1,7 +1,7 @@
 /*
 regarding program starting:
 	user@computer:~$ <path-to-converter> foo.asm -c att -t intel - bar.asm
-	The user will be able to initiat the converter, and input a file, what syntax it is in, and what syntax to convert to.
+	The user will be able to initiate the converter, and input a file, what syntax it is in, and what syntax to convert to.
 	Flags:
 		-f || --file		=> specifies a file will start
 		-c || --from		=> specifies that the next word is the current syntax of the file, that is what the file is to be converted from
@@ -10,46 +10,22 @@ regarding program starting:
 		-? || --help || -h	=> displays information about how to run the program
 */
 
-int main(char *args, int argc) {
-	FILE file;
-	register int rcx;
-	for (rcx = 0; *(args+rcx) != ' '; ++rcx);
-	while (rcx < argc) {
-		switch(*(args+rcx)) {
-			case '-':
-				rcx++;
-				switch (*(args+rcx)) {
-					case 'f':
-						rcx++;
-						if (*(args+rcx) == ' ') rcx++;
-						switch (*(args+rcx)) {
-							case 'a':
-								break;
-							case 'i':
-								break;
-						}
-						break;
-					case 'c':
-						rcx++;
-						break;
-					case 't':
-						rcx++;
-						break;
-					case 'o':
-						rcx++;
-						break;
-					case '?':
-						rcx++;
-						break;
-					case 'h':
-						rcx++;
-						break;
-					case '-':
-						break;
-					default:
-				}
-				break;
-			default:
-		}
+#include <stdio.h>
+
+int main(int argc, char **args) {
+	args++;
+	argc--;
+	putchar(**args);
+	if (*args == "-?" || *args == "-h" || *args == "--help") {
+		puts("Help page not yet made!");
+		return 0;
 	}
+
+	//register int rcx = 0;
+
+	//for (rcx; rcx < argc; rcx++) {
+	//	if (*args == '-') {
+	//		continue;
+	//	}
+	//}
 }
